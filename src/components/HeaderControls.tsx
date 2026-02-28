@@ -29,9 +29,9 @@ export default function HeaderControls() {
       className="header-lang flex items-center gap-1 px-2 py-1.5 text-sm font-medium text-white bg-blue-600/20 hover:bg-blue-600/40 rounded-lg border border-blue-500/30 transition-colors"
       title={lang === 'id' ? 'Switch to English' : 'Ganti ke Bahasa Indonesia'}
     >
-      <span className="text-base">🇮🇩</span>
-      <span className="text-xs text-gray-300">/</span>
-      <span className="text-base">🇬🇧</span>
+      <span className={`text-base transition-all duration-200 ${lang === 'id' ? 'drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] scale-110' : 'opacity-60'}`}>🇮🇩</span>
+      <span className="text-xs text-gray-400">/</span>
+      <span className={`text-base transition-all duration-200 ${lang === 'en' ? 'drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] scale-110' : 'opacity-60'}`}>🇬🇧</span>
     </button>
   );
 }
