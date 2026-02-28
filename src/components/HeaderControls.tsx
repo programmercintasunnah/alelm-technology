@@ -24,13 +24,14 @@ export default function HeaderControls() {
   if (!mounted) return null;
 
   return (
-    <div className="flex items-center gap-3">
-      <button
-        onClick={toggleLang}
-        className="header-lang px-3 py-1.5 text-sm font-medium text-white bg-blue-600/20 hover:bg-blue-600/40 rounded-lg border border-blue-500/30 transition-colors"
-      >
-        {lang === 'id' ? 'EN' : 'ID'}
-      </button>
-    </div>
+    <button
+      onClick={toggleLang}
+      className="header-lang flex items-center gap-1 px-2 py-1.5 text-sm font-medium text-white bg-blue-600/20 hover:bg-blue-600/40 rounded-lg border border-blue-500/30 transition-colors"
+      title={lang === 'id' ? 'Switch to English' : 'Ganti ke Bahasa Indonesia'}
+    >
+      <span className="text-base">🇮🇩</span>
+      <span className="text-xs text-gray-300">/</span>
+      <span className="text-base">🇬🇧</span>
+    </button>
   );
 }
