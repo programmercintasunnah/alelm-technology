@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "title": "Web Development",
+    "titleEn": "Web Development",
+    "description": "Pengembangan website responsif dan modern dengan teknologi terkini untuk meningkatkan presença online bisnis Anda.",
+    "descriptionEn": "Development of responsive and modern websites with the latest technology to enhance your business's online presence.",
+    "icon": "globe",
+    "features": [
+      "Responsive Design",
+      "SEO Optimized",
+      "Fast Loading",
+      "CMS Integration"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Mobile App Development",
+    "titleEn": "Mobile App Development",
+    "description": "Pembuatan aplikasi mobile iOS dan Android yang user-friendly dan performant untuk menjangkau lebih banyak pelanggan.",
+    "descriptionEn": "Creation of user-friendly and performant iOS and Android mobile apps to reach more customers.",
+    "icon": "smartphone",
+    "features": [
+      "iOS & Android",
+      "Native & Cross-platform",
+      "API Integration",
+      "App Store Submission"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "UI/UX Design",
+    "titleEn": "UI/UX Design",
+    "description": "Desain antarmuka yang menarik dan user experience yang optimal untuk meningkatkan engagement pengguna.",
+    "descriptionEn": "Attractive interface design and optimal user experience to increase user engagement.",
+    "icon": "paint-brush",
+    "features": [
+      "User Research",
+      "Wireframing",
+      "Prototyping",
+      "Design Systems"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Cloud Solutions",
+    "titleEn": "Cloud Solutions",
+    "description": "Solusi cloud computing yang aman dan scalable untuk mendukung kebutuhan bisnis Anda.",
+    "descriptionEn": "Secure and scalable cloud computing solutions to support your business needs.",
+    "icon": "cloud",
+    "features": [
+      "Cloud Migration",
+      "Cloud Architecture",
+      "DevOps Services",
+      "24/7 Monitoring"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Data Analytics",
+    "titleEn": "Data Analytics",
+    "description": "Analisis data mendalam untuk memberikan insight berharga bagi pengambilan keputusan bisnis.",
+    "descriptionEn": "In-depth data analysis to provide valuable insights for business decision making.",
+    "icon": "chart-bar",
+    "features": [
+      "Data Visualization",
+      "Business Intelligence",
+      "Predictive Analytics",
+      "Custom Dashboards"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "IT Consulting",
+    "titleEn": "IT Consulting",
+    "description": "Konsultasi teknologi informasi untuk membantu Anda memilih dan mengimplementasikan solusi yang tepat.",
+    "descriptionEn": "Information technology consulting to help you choose and implement the right solutions.",
+    "icon": "lightbulb",
+    "features": [
+      "Technology Assessment",
+      "Digital Transformation",
+      "IT Strategy",
+      "Vendor Selection"
+    ]
+  }
+]

@@ -1,0 +1,61 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Services from '../components/Services.astro';
+import PortfolioFilter from '../components/PortfolioFilter';
+import Testimonials from '../components/Testimonials.astro';
+import FAQ from '../components/FAQ.astro';
+import ContactForm from '../components/ContactForm';
+import { getCompany, getServices, getPortfolio, getTestimonials, getFAQ, getPortfolioCategories } from '../lib/api';
+
+const company = await getCompany();
+const services = await getServices();
+const portfolio = await getPortfolio();
+const testimonials = await getTestimonials();
+const faqs = await getFAQ();
+const categories = getPortfolioCategories();
+---
+
+<Layout title={`${company.name} - ${company.tagline}`} description={company.description}>
+  <Header companyName={company.name} />
+  
+  <main>
+    <Hero 
+      companyName={company.name} 
+      tagline={company.tagline} 
+      description={company.description} 
+    />
+
+    <About 
+      description={company.description}
+      vision={company.vision}
+      mission={company.mission}
+      founded={company.founded}
+    />
+
+    <Services services={services} />
+
+    <PortfolioFilter 
+      client:load 
+      initialItems={portfolio} 
+      categories={categories} 
+    />
+
+    <Testimonials testimonials={testimonials} />
+
+    <FAQ faqs={faqs} />
+
+    <ContactForm client:visible />
+  </main>
+
+  <Footer 
+    companyName={company.name}
+    email={company.email}
+    phone={company.phone}
+    address={company.address}
+    socialMedia={company.socialMedia}
+  />
+</Layout>

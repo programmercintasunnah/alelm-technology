@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "question": "Apa saja layanan yang ditawarkan Alelm Technology?",
+    "questionEn": "What services does Alelm Technology offer?",
+    "answer": "Kami menawarkan berbagai layanan teknologi meliputi Web Development, Mobile App Development, UI/UX Design, Cloud Solutions, Data Analytics, dan IT Consulting.",
+    "answerEn": "We offer various technology services including Web Development, Mobile App Development, UI/UX Design, Cloud Solutions, Data Analytics, and IT Consulting."
+  },
+  {
+    "id": 2,
+    "question": "Berapa lama waktu pengembangan proyek?",
+    "questionEn": "How long does it take to develop a project?",
+    "answer": "Waktu pengembangan tergantung pada kompleksitas proyek. Website sederhana membutuhkan waktu 2-4 minggu, aplikasi mobile 2-3 bulan, dan proyek enterprise bisa lebih lama.",
+    "answerEn": "Development time depends on project complexity. Simple websites take 2-4 weeks, mobile apps 2-3 months, and enterprise projects can take longer."
+  },
+  {
+    "id": 3,
+    "question": "Apakah提供post-launch support?",
+    "questionEn": "Do you provide post-launch support?",
+    "answer": "Ya, kami提供post-launch support termasuk maintenance, bug fixes, dan updates. Kami menawarkan berbagai paket support yang dapat disesuaikan dengan kebutuhan Anda.",
+    "answerEn": "Yes, we provide post-launch support including maintenance, bug fixes, and updates. We offer various support packages that can be tailored to your needs."
+  },
+  {
+    "id": 4,
+    "question": "Bagaimana proses kerjasama dengan Alelm Technology?",
+    "questionEn": "What is the cooperation process with Alelm Technology?",
+    "answer": "Prosesnya meliputi: 1) Konsultasi awal untuk memahami kebutuhan, 2) Penyusunan proposal dan estimasi biaya, 3) Development dengan progres update berkala, 4) Testing dan QA, 5) Launch dan handover.",
+    "answerEn": "The process includes: 1) Initial consultation to understand requirements, 2) Proposal and cost estimation, 3) Development with periodic progress updates, 4) Testing and QA, 5) Launch and handover."
+  },
+  {
+    "id": 5,
+    "question": "Apakah Alelm Technology menerima proyek dengan budget terbatas?",
+    "questionEn": "Does Alelm Technology accept projects with limited budget?",
+    "answer": "Ya, kami fleksibel dalam hal budget. Kami akan bekerja sama dengan Anda untuk menemukan solusi terbaik yang sesuai dengan budget dan kebutuhan proyek Anda.",
+    "answerEn": "Yes, we are flexible with budgets. We will work with you to find the best solution that fits your project budget and needs."
+  },
+  {
+    "id": 6,
+    "question": "Teknologi apa saja yang digunakan Alelm Technology?",
+    "questionEn": "What technologies does Alelm Technology use?",
+    "answer": "Kami menggunakan teknologi terkini seperti React, Vue.js, Next.js, Node.js, React Native, Flutter, dan cloud services seperti AWS, Google Cloud, dan Azure.",
+    "answerEn": "We use the latest technologies such as React, Vue.js, Next.js, Node.js, React Native, Flutter, and cloud services like AWS, Google Cloud, and Azure."
+  }
+]

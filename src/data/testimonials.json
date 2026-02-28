@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Budi Santoso",
+    "nameEn": "Budi Santoso",
+    "position": "CEO RetailMax",
+    "positionEn": "CEO RetailMax",
+    "company": "RetailMax",
+    "testimonial": "Alelm Technology telah membantu kami membangun platform e-commerce yang luar biasa. Tim mereka sangat profesional dan responsif.",
+    "testimonialEn": "Alelm Technology has helped us build an incredible e-commerce platform. Their team is very professional and responsive.",
+    "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop",
+    "rating": 5
+  },
+  {
+    "id": 2,
+    "name": "Siti Rahayu",
+    "nameEn": "Siti Rahayu",
+    "position": "Director MediCare",
+    "positionEn": "Director MediCare",
+    "company": "MediCare",
+    "testimonial": "Aplikasi kesehatan yang dikembangkan Alelm Technology sangat membantu pasien kami. UI/UX yang intuitif membuat pengguna mudah menggunakannya.",
+    "testimonialEn": "The health app developed by Alelm Technology has been very helpful for our patients. The intuitive UI/UX makes it easy for users.",
+    "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
+    "rating": 5
+  },
+  {
+    "id": 3,
+    "name": "Ahmad Pratama",
+    "nameEn": "Ahmad Pratama",
+    "position": "IT Manager Bank Nusantara",
+    "positionEn": "IT Manager Bank Nusantara",
+    "company": "Bank Nusantara",
+    "testimonial": "Redesign dashboard kami sangat memuaskan. Conversion rate meningkat signifikan setelah redesign dari Alelm Technology.",
+    "testimonialEn": "Our dashboard redesign was very satisfying. Conversion rates increased significantly after the redesign by Alelm Technology.",
+    "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
+    "rating": 5
+  },
+  {
+    "id": 4,
+    "name": "Dewi Lestari",
+    "nameEn": "Dewi Lestari",
+    "position": "Owner Kuliner Kita",
+    "positionEn": "Owner Kuliner Kita",
+    "company": "Kuliner Kita",
+    "testimonial": "Sistem POS dari Alelm Technology sangat membantu operasional restoran kami. Semua berjalan lebih efisien sekarang.",
+    "testimonialEn": "The POS system from Alelm Technology has been very helpful for our restaurant operations. Everything runs more efficiently now.",
+    "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop",
+    "rating": 4
+  }
+]

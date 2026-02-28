@@ -1,0 +1,31 @@
+{
+  "name": "Alelm Technology",
+  "tagline": "Innovating Your Digital Future",
+  "taglineEn": "Innovating Your Digital Future",
+  "description": "Alelm Technology adalah perusahaan teknologi yang fokus pada pengembangan solusi digital inovatif untuk membantu bisnis Anda berkembang di era digital.",
+  "descriptionEn": "Alelm Technology is a technology company focused on developing innovative digital solutions to help your business grow in the digital era.",
+  "vision": "Menjadi perusahaan teknologi terdepan yang memberikan solusi digital terbaik untuk kehidupan yang lebih baik.",
+  "visionEn": "To become a leading technology company providing the best digital solutions for a better life.",
+  "mission": [
+    "Mengembangkan teknologi inovatif yang menjawab kebutuhan masyarakat",
+    "Memberikan layanan berkualitas tinggi dengan harga kompetitif",
+    "Membangun tim profesional yang kompeten dan berintegritas",
+    "Berkontribusi positif terhadap perkembangan teknologi nasional"
+  ],
+  "missionEn": [
+    "Develop innovative technology that meets community needs",
+    "Provide high-quality services at competitive prices",
+    "Build a professional team that is competent and has integrity",
+    "Contribute positively to the development of national technology"
+  ],
+  "founded": 2020,
+  "email": "admin@alelmtechnology.com",
+  "phone": "+62 812 3456 7890",
+  "address": "Pekanbaru, Indonesia",
+  "socialMedia": {
+    "instagram": "https://instagram.com/alelmtechnology",
+    "linkedin": "https://linkedin.com/company/alelmtechnology",
+    "twitter": "https://twitter.com/alelmtech",
+    "github": "https://github.com/alelmtechnology"
+  }
+}
