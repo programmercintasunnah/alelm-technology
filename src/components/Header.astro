@@ -6,23 +6,23 @@ interface Props {
 const { companyName } = Astro.props;
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-[#0d1b2a] via-[#1b3a5f] to-[#0d1b2a] border-b border-blue-800/30">
-  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between items-center h-16">
+<header id="main-header" class="absolute top-0 left-0 right-0 z-50 h-28 md:h-28 transition-all duration-300">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+    <div class="flex justify-between items-center h-full">
       <a href="/" class="flex items-center">
-        <img src="/logo-alelm-tech-landscape-light.png" alt="Alelm Technology" class="h-12 md:h-14 w-auto" />
+        <img src="/logo-alelm-tech-landscape-light.png" alt="Alelm Technology" class="header-logo h-14 md:h-16 w-auto transition-all duration-300" />
       </a>
 
       <div class="hidden md:flex items-center space-x-8">
-        <a href="#about" class="text-gray-300 hover:text-blue-400 transition-colors">Tentang</a>
-        <a href="#services" class="text-gray-300 hover:text-blue-400 transition-colors">Layanan</a>
-        <a href="#portfolio" class="text-gray-300 hover:text-blue-400 transition-colors">Portofolio</a>
-        <a href="#testimonials" class="text-gray-300 hover:text-blue-400 transition-colors">Testimoni</a>
-        <a href="#faq" class="text-gray-300 hover:text-blue-400 transition-colors">FAQ</a>
-        <a href="#contact" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors shadow-lg shadow-blue-600/20">Hubungi Kami</a>
+        <a href="#about" class="header-link text-white hover:text-blue-400 transition-colors">Tentang</a>
+        <a href="#services" class="header-link text-white hover:text-blue-400 transition-colors">Layanan</a>
+        <a href="#portfolio" class="header-link text-white hover:text-blue-400 transition-colors">Portofolio</a>
+        <a href="#testimonials" class="header-link text-white hover:text-blue-400 transition-colors">Testimoni</a>
+        <a href="#faq" class="header-link text-white hover:text-blue-400 transition-colors">FAQ</a>
+        <a href="#contact" class="header-cta px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors shadow-lg shadow-blue-600/20">Hubungi Kami</a>
       </div>
 
-      <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-300">
+      <button id="mobile-menu-btn" class="md:hidden p-2 text-white">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
@@ -40,7 +40,46 @@ const { companyName } = Astro.props;
   </nav>
 </header>
 
+<style>
+  header {
+    background: transparent;
+    border-bottom: none;
+  }
+
+  header.scrolled {
+    background: linear-gradient(to bottom, #0d1b2a, #1b3a5f);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+  }
+
+  header.scrolled :global(.header-logo) {
+    height: 2.5rem !important;
+  }
+
+  header.scrolled :global(.header-link) {
+    opacity: 0.9;
+  }
+
+  header.scrolled :global(.header-cta) {
+    padding: 0.5rem 1.25rem;
+  }
+</style>
+
 <script>
+  const header = document.getElementById('main-header');
+  const scrollThreshold = 80;
+
+  function handleScroll() {
+    if (window.scrollY > scrollThreshold) {
+      header?.classList.add('scrolled');
+    } else {
+      header?.classList.remove('scrolled');
+    }
+  }
+
+  window.addEventListener('scroll', handleScroll);
+  handleScroll();
+
   const menuBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
 
