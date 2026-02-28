@@ -2,12 +2,12 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import Hero from '../components/Hero.astro';
-import About from '../components/About.astro';
-import Services from '../components/Services.astro';
+import Hero from '../components/Hero';
+import About from '../components/About';
+import Services from '../components/Services';
 import PortfolioFilter from '../components/PortfolioFilter';
-import Testimonials from '../components/Testimonials.astro';
-import FAQ from '../components/FAQ.astro';
+import Testimonials from '../components/Testimonials';
+import FAQ from '../components/FAQ';
 import ContactForm from '../components/ContactForm';
 import { getCompany, getServices, getPortfolio, getTestimonials, getFAQ, getPortfolioCategories } from '../lib/api';
 
@@ -24,19 +24,26 @@ const categories = getPortfolioCategories();
   
   <main>
     <Hero 
+      client:load
       companyName={company.name} 
-      tagline={company.tagline} 
-      description={company.description} 
+      tagline={company.tagline}
+      taglineEn={company.taglineEn}
+      description={company.description}
+      descriptionEn={company.descriptionEn}
     />
 
     <About 
+      client:load
       description={company.description}
+      descriptionEn={company.descriptionEn}
       vision={company.vision}
+      visionEn={company.visionEn}
       mission={company.mission}
+      missionEn={company.missionEn}
       founded={company.founded}
     />
 
-    <Services services={services} />
+    <Services client:load services={services} />
 
     <PortfolioFilter 
       client:load 
@@ -44,9 +51,9 @@ const categories = getPortfolioCategories();
       categories={categories} 
     />
 
-    <Testimonials testimonials={testimonials} />
+    <Testimonials client:load testimonials={testimonials} />
 
-    <FAQ faqs={faqs} />
+    <FAQ client:load faqs={faqs} />
 
     <ContactForm client:visible />
   </main>
