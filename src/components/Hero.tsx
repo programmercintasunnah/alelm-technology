@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 interface HeroProps {
   companyName: string;
@@ -19,8 +19,11 @@ export default function Hero({ companyName, tagline, taglineEn, description, des
   const [lang, setLang] = useState('id');
   const [fontIndex, setFontIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
-  const [isTyping, setIsTyping] = useState(true);
   const [mounted, setMounted] = useState(false);
+  
+  const phaseRef = useRef<'typing' | 'waiting' | 'deleting'>('typing');
+  const indexRef = useRef(0);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -39,37 +42,44 @@ export default function Hero({ companyName, tagline, taglineEn, description, des
     if (!mounted) return;
 
     const fullText = companyName;
-    let currentIndex = 0;
-    let timeoutId: ReturnType<typeof setTimeout>;
 
-    const typeWriter = () => {
-      if (isTyping) {
-        if (currentIndex <= fullText.length) {
-          setDisplayText(fullText.slice(0, currentIndex));
-          currentIndex++;
-          timeoutId = setTimeout(typeWriter, 100);
+    const runTypewriter = () => {
+      const phase = phaseRef.current;
+      const index = indexRef.current;
+
+      if (phase === 'typing') {
+        if (index < fullText.length) {
+          indexRef.current = index + 1;
+          setDisplayText(fullText.slice(0, index + 1));
+          timeoutRef.current = setTimeout(runTypewriter, 100);
         } else {
-          timeoutId = setTimeout(() => {
-            setIsTyping(false);
-          }, 5000);
+          phaseRef.current = 'waiting';
+          timeoutRef.current = setTimeout(runTypewriter, 5000);
         }
-      } else {
-        if (currentIndex > 0) {
-          currentIndex--;
-          setDisplayText(fullText.slice(0, currentIndex));
-          timeoutId = setTimeout(() => typeWriter(), 50);
+      } else if (phase === 'waiting') {
+        phaseRef.current = 'deleting';
+        timeoutRef.current = setTimeout(runTypewriter, 100);
+      } else if (phase === 'deleting') {
+        if (index > 0) {
+          indexRef.current = index - 1;
+          setDisplayText(fullText.slice(0, index - 1));
+          timeoutRef.current = setTimeout(runTypewriter, 50);
         } else {
           setFontIndex((prev) => (prev + 1) % fontClasses.length);
-          setIsTyping(true);
-          timeoutId = setTimeout(typeWriter, 300);
+          phaseRef.current = 'typing';
+          timeoutRef.current = setTimeout(runTypewriter, 300);
         }
       }
     };
 
-    typeWriter();
+    runTypewriter();
 
-    return () => clearTimeout(timeoutId);
-  }, [companyName, mounted, isTyping]);
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, [companyName, mounted]);
 
   const t = {
     tagline: lang === 'id' ? tagline : taglineEn,
