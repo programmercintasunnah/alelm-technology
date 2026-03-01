@@ -8,11 +8,11 @@ interface HeroProps {
   descriptionEn: string;
 }
 
-const fontClasses = [
-  'font-poppins',
-  'font-montserrat',
-  'font-inter',
-  'font-plusJakarta'
+const fonts = [
+  "'Poppins', sans-serif",
+  "'Montserrat', sans-serif",
+  "'Inter', sans-serif",
+  "'Plus Jakarta Sans', sans-serif"
 ];
 
 export default function Hero({ companyName, tagline, taglineEn, description, descriptionEn }: HeroProps) {
@@ -65,8 +65,7 @@ export default function Hero({ companyName, tagline, taglineEn, description, des
           setDisplayText(fullText.slice(0, index - 1));
           timeoutRef.current = setTimeout(runTypewriter, 50);
         } else {
-          // Text is empty, switch font and restart
-          const nextFont = (fontIndex + 1) % fontClasses.length;
+          const nextFont = (fontIndex + 1) % fonts.length;
           setFontIndex(nextFont);
           phaseRef.current = 'typing';
           timeoutRef.current = setTimeout(runTypewriter, 300);
@@ -109,7 +108,10 @@ export default function Hero({ companyName, tagline, taglineEn, description, des
           <span className="text-sm text-blue-300">{t.badge}</span>
         </div>
 
-        <h1 className={`text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight ${fontClasses[fontIndex]}`}>
+        <h1 
+          className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight"
+          style={{ fontFamily: fonts[fontIndex] }}
+        >
           <span className="text-white">{displayText}</span>
           <span className="animate-cursor-blink border-r-4 border-blue-400 ml-1">&nbsp;</span>
         </h1>
@@ -143,7 +145,7 @@ export default function Hero({ companyName, tagline, taglineEn, description, des
           </div>
           <div className="w-px h-12 bg-blue-500/40"></div>
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-white">30+</div>
+            <div className="text-3xl md-bold text-white">30+</div>
             <div className="text-sm text-blue-300/70">{t.stats3}</div>
           </div>
         </div>
