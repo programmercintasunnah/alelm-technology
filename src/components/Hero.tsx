@@ -8,10 +8,22 @@ interface HeroProps {
   descriptionEn: string;
 }
 
+const fontClasses = [
+  'font-poppins',
+  'font-montserrat',
+  'font-inter',
+  'font-plusJakarta'
+];
+
 export default function Hero({ companyName, tagline, taglineEn, description, descriptionEn }: HeroProps) {
   const [lang, setLang] = useState('id');
+  const [fontIndex, setFontIndex] = useState(0);
+  const [displayText, setDisplayText] = useState('');
+  const [isTyping, setIsTyping] = useState(true);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const savedLang = localStorage.getItem('alelm-lang') || 'id';
     setLang(savedLang);
 
@@ -22,6 +34,42 @@ export default function Hero({ companyName, tagline, taglineEn, description, des
     window.addEventListener('alelm-lang-change', handleLangChange as EventListener);
     return () => window.removeEventListener('alelm-lang-change', handleLangChange as EventListener);
   }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+
+    const fullText = companyName;
+    let currentIndex = 0;
+    let timeoutId: ReturnType<typeof setTimeout>;
+
+    const typeWriter = () => {
+      if (isTyping) {
+        if (currentIndex <= fullText.length) {
+          setDisplayText(fullText.slice(0, currentIndex));
+          currentIndex++;
+          timeoutId = setTimeout(typeWriter, 100);
+        } else {
+          timeoutId = setTimeout(() => {
+            setIsTyping(false);
+          }, 5000);
+        }
+      } else {
+        if (currentIndex > 0) {
+          currentIndex--;
+          setDisplayText(fullText.slice(0, currentIndex));
+          timeoutId = setTimeout(() => typeWriter(), 50);
+        } else {
+          setFontIndex((prev) => (prev + 1) % fontClasses.length);
+          setIsTyping(true);
+          timeoutId = setTimeout(typeWriter, 300);
+        }
+      }
+    };
+
+    typeWriter();
+
+    return () => clearTimeout(timeoutId);
+  }, [companyName, mounted, isTyping]);
 
   const t = {
     tagline: lang === 'id' ? tagline : taglineEn,
@@ -49,8 +97,9 @@ export default function Hero({ companyName, tagline, taglineEn, description, des
           <span className="text-sm text-blue-300">{t.badge}</span>
         </div>
 
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-          <span className="text-white">{companyName}</span>
+        <h1 className={`text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight ${fontClasses[fontIndex]} transition-all duration-300`}>
+          <span className="text-white">{displayText}</span>
+          <span className="animate-cursor-blink border-r-4 border-blue-400 ml-1"></span>
         </h1>
 
         <p className="text-xl md:text-2xl text-blue-400 font-medium mb-4">
