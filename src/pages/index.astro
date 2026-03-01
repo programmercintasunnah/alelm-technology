@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import Services from '../components/Services';
@@ -20,7 +20,7 @@ const categories = getPortfolioCategories();
 ---
 
 <Layout title={`${company.name} - ${company.tagline}`} description={company.description}>
-  <Header companyName={company.name} />
+  <Header client:load companyName={company.name} />
   
   <main>
     <Hero 
@@ -59,6 +59,7 @@ const categories = getPortfolioCategories();
   </main>
 
   <Footer 
+    client:load
     companyName={company.name}
     email={company.email}
     phone={company.phone}
