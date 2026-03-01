@@ -20,6 +20,7 @@ export default function Hero({ companyName, tagline, taglineEn, description, des
   const [fontIndex, setFontIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
   const [mounted, setMounted] = useState(false);
+  const [renderKey, setRenderKey] = useState(0);
   
   const phaseRef = useRef<'typing' | 'waiting' | 'deleting'>('typing');
   const indexRef = useRef(0);
@@ -42,10 +43,12 @@ export default function Hero({ companyName, tagline, taglineEn, description, des
     if (!mounted) return;
 
     const fullText = companyName;
+    console.log('Typewriter effect started, fontIndex:', fontIndex);
 
     const runTypewriter = () => {
       const phase = phaseRef.current;
       const index = indexRef.current;
+      console.log('Phase:', phase, 'Index:', index, 'Font:', fontIndex);
 
       if (phase === 'typing') {
         if (index < fullText.length) {
@@ -53,10 +56,12 @@ export default function Hero({ companyName, tagline, taglineEn, description, des
           setDisplayText(fullText.slice(0, index + 1));
           timeoutRef.current = setTimeout(runTypewriter, 100);
         } else {
+          console.log('Typing complete, waiting 5 seconds...');
           phaseRef.current = 'waiting';
           timeoutRef.current = setTimeout(runTypewriter, 5000);
         }
       } else if (phase === 'waiting') {
+        console.log('Waiting done, starting delete...');
         phaseRef.current = 'deleting';
         timeoutRef.current = setTimeout(runTypewriter, 100);
       } else if (phase === 'deleting') {
@@ -65,8 +70,11 @@ export default function Hero({ companyName, tagline, taglineEn, description, des
           setDisplayText(fullText.slice(0, index - 1));
           timeoutRef.current = setTimeout(runTypewriter, 50);
         } else {
+          console.log('Delete complete, switching font...');
           const nextFont = (fontIndex + 1) % fonts.length;
+          console.log('New fontIndex:', nextFont);
           setFontIndex(nextFont);
+          setRenderKey(prev => prev + 1);
           phaseRef.current = 'typing';
           timeoutRef.current = setTimeout(runTypewriter, 300);
         }
@@ -109,6 +117,7 @@ export default function Hero({ companyName, tagline, taglineEn, description, des
         </div>
 
         <h1 
+          key={renderKey}
           className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight"
           style={{ fontFamily: fonts[fontIndex] }}
         >
@@ -145,7 +154,7 @@ export default function Hero({ companyName, tagline, taglineEn, description, des
           </div>
           <div className="w-px h-12 bg-blue-500/40"></div>
           <div className="text-center">
-            <div className="text-3xl md-bold text-white">30+</div>
+            <div className="text-3xl md:text-4xl font-bold text-white">30+</div>
             <div className="text-sm text-blue-300/70">{t.stats3}</div>
           </div>
         </div>
